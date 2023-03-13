@@ -12,4 +12,5 @@ namespace RpgApi.Models
         public int Inteligencia { get; set; }
         public ClasseEnum Classe { get; set; }
     }
+    
 }

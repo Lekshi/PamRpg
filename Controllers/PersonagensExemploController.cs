@@ -20,7 +20,7 @@ namespace RpgApi.Controllers
             new Personagem() { Id = 7, Nome = "Radagast", PontosVida=100, Forca=25, Defesa=11, Inteligencia=35, Classe=ClasseEnum.Mago }
         };
       
-    [HttpPost]
+    /*[HttpPost]
 
     public IActionResult AddPersonagem(Personagem novoPersonagem)
     {
@@ -48,7 +48,7 @@ namespace RpgApi.Controllers
     public IActionResult Delete(int id)
     {
       personagens.RemoveAll(pers => pers.Id == id);
-      return Ok(personagens);
+      return    Ok(personagens);
     }
 
     [HttpGet("GetOrdenado")]
@@ -61,9 +61,25 @@ namespace RpgApi.Controllers
     [HttpGet("GetContagem")]
     public IActionResult GetQuantidade()
     {
-      return OK("Quantidade de Personagens:" + PersonagensExemploController.Count);
+      return Ok("Quantidade de Personagens:" + personagens.Count);
     }
-
-
+    [HttpGet("GetSomaForca")]
+    public IActionResult GetSomaforca()
+    {
+      return Ok(personagens.Sum(p => p.Forca));
+    }
+    [HttpGet("GetSemScavaliero")]
+    public IActionResult GetSemCavaleiro()
+    {
+      List<Personagem> listaBusca = personagens.FindAll(p => p.Classe != personagens.ClasseEnum.Cavaleiro);
+      return Ok(listaBusca);
+    }
+    [HttpGet("GetByNomeAproximado/{nome}")]
+    public IActionResult GetByNomeAproximado(string nome)
+    {
+      List<Personagem> listaBusca = personagens.FindAll(p => p.Nome.Contains(nome));
+      return Ok(listaBusca);
+    }
+    */
     }
 }
